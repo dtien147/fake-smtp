@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>📬 Fake SMTP Inbox</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .email { padding: 10px; border-bottom: 1px solid #ccc; }
+    .email a { text-decoration: none; color: black; display: block; }
+    .subject { font-weight: bold; }
+    .from { color: gray; }
+  </style>
+</head>
+<body>
+  <h1>📬 Fake SMTP Inbox</h1>
+  <% if (emails.length === 0) { %>
+    <p>No emails received yet.</p>
+  <% } %>
+  <% emails.forEach((email) => { %>
+    <div class="email">
+      <a href="/email/<%= email.id %>">
+        <div class="subject"><%= email.subject %></div>
+        <div class="from">From: <%= email.from %></div>
+        <div class="date"><%= email.date %></div>
+      </a>
+    </div>
+  <% }); %>
+</body>
+</html>
